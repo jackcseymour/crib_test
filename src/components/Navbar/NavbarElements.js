@@ -12,7 +12,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #42cbf5;
+  color: white;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -20,7 +20,7 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #4d4dff;
+    color: #4DCDA2;
   }
 `;
 
