@@ -10,6 +10,9 @@ const Navbar = () => {
           <NavLink to="/chat" activeStyle>
             Chat
           </NavLink>
+          <NavLink to="/" activeStyle>
+            Home
+          </NavLink>
         </NavMenu>
       </Nav>
     </>
