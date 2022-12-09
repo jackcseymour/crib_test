@@ -1,0 +1,110 @@
+.Chat {
+  display: grid;
+  grid-template-rows: min-content auto;
+  grid-template-columns: 250px auto;
+  height: 100vh;
+  overflow: scroll;
+}
+
+header,
+.user {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  grid-column: 1 / span 2;
+  padding: 10px 5px;
+  font-size: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  padding-top: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form input,
+form textarea {
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+nav,
+article {
+  height: 100%;
+  padding: 10px;
+}
+
+article {
+  background-image: url(https://lh5.googleusercontent.com/proxy/LXsMGDxCOddmea458WA67VZxScxl6yYfii0m3sR_QNRsr93LUfngth_mZG9kcCI7pwqnGfjkl_UQTN9eEXj1u72jqmvib33cFpZfQvhs66BWNeeu3pMqYuiu0lu1wC_6x9p4LOklaDqrSwACrlH-lB0uSd7XkBsTdtyz6v4=w1200-h630-p-k-no-nu);
+}
+
+nav {
+  color: white;
+  text-shadow: 6px 6px 6px rgb(75, 1, 75);
+  background-image: linear-gradient(180deg, blue, rgb(16, 190, 129));
+}
+
+nav p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 30px;
+  text-shadow: 10px 10px 10px whitesmoke;
+}
+
+article .date {
+  font-style: italic;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 10px 10px 10px whitesmoke;
+}
+
+article .body {
+  white-space: break-spaces;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  text-shadow: 10px 10px 10px whitesmoke;
+}
+
+.error {
+  background-color: red;
+  color: gold;
+  padding: 5px;
+}
+
+.articleButton {
+  transition: all 1s;
+  font-family: monospace;
+  border-radius: 25%;
+  width: 100px;
+  height: 35px;
+  margin-left: 3%;
+  margin-top: 5px;
+}
+
+.articleButton:hover {
+  scale: 1.1;
+  background-color: rgb(16, 190, 129);
+  opacity: 0.9;
+}
+
+.image_owl {
+  width: 30px;
+  height: 30px;
+  margin-left: 3%;
+}
