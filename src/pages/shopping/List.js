@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SignIn, SignOut, useAuthentication } from '../../components/services/authService'
-import { fetchItems } from '../../components/services/itemService'
+import { createItem, fetchItems } from '../../components/services/itemService'
 import './List.css'
+
+import urlExist from 'url-exist'
 
 export default function List() {
   const [content, setContent] = useState('')
   const [imageUrl, setImageUrl] = useState('')
+  const [imageValid, setImageValid] = useState(false)
 
   const [items, setItems] = useState([])
   const [item, setItem] = useState(null)
@@ -18,13 +21,20 @@ export default function List() {
     }
   }, [user])
 
+  useEffect(() => {
+    const checkImage = async () => {
+      const response = await urlExist(imageUrl)
+      setImageValid(response)
+    }
+    checkImage()
+  }, [imageUrl])
+
   // Update the "database" *then* update the internal React state. These
   // two steps are definitely necessary.
-  function addArticle({ title, body }) {
-    createArticle({ title, body }).then(article => {
-      setArticle(article)
-      setArticles([article, ...articles])
-      setWriting(false)
+  const addItem = async ({ title, body }) => {
+    await createItem({ title, body }).then(item => {
+      setItem(item)
+      setItems([item, ...items])
     })
   }
 
@@ -41,6 +51,13 @@ export default function List() {
     return url
   }
 
+  const handleItemClick = async (content, imageUrl) => {
+    await addItem({ title: content, body: imageUrl })
+  }
+
+  console.log('ITEMS: ', items)
+  console.log('ITEM: ', item)
+
   return (
     <div className="List">
       <header>
@@ -50,8 +67,20 @@ export default function List() {
 
       <input value={content} onChange={e => handleChange(e)} />
 
+      {imageValid && (
+        <div>
+          <img src={imageUrl} alt="item" onClick={() => handleItemClick(content, imageUrl)} />
+        </div>
+      )}
+
       <div>
-        <img src={imageUrl} alt="item" />
+        {items.map(item => {
+          return (
+            <div key={item.id}>
+              <img src={item.imageUrl} alt={item.title} />
+            </div>
+          )
+        })}
       </div>
     </div>
   )
