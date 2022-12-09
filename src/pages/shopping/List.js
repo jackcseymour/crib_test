@@ -65,6 +65,12 @@ export default function List() {
         {!user ? <SignIn /> : <SignOut />}
       </header>
 
+      <h3>
+        What would you like to add?
+      </h3>
+      <p>
+        Search for your item in the search bar and click the image to add it to the list.
+      </p>
       <input value={content} onChange={e => handleChange(e)} />
 
       {imageValid && (
@@ -72,12 +78,18 @@ export default function List() {
           <img src={imageUrl} alt="item" onClick={() => handleItemClick(content, imageUrl)} />
         </div>
       )}
-
+      <hr/>
+      <h3>
+        Current Shopping List:
+      </h3>
       <div>
         {items.map(item => {
           return (
             <div key={item.id}>
-              <img src={item.imageUrl} alt={item.title} />
+              <figure>
+                <img src={item.body} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+              </figure>
             </div>
           )
         })}

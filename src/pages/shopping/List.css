@@ -108,3 +108,8 @@ article .body {
   height: 30px;
   margin-left: 3%;
 }
+
+figure {
+  display: flex;
+  align-items: center;
+}
