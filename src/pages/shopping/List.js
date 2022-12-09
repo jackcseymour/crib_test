@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
-import Nav from "../groupChat/Nav";
-import Article from "../groupChat//Article";
-import ArticleEntry from "../groupChat/ArticleEntry";
+import { useState } from "react";
 import {
   SignIn,
   SignOut,
   useAuthentication,
 } from "../../components/services/authService";
-import {
-  fetchArticles,
-  createArticle,
-} from "../../components/services/articleService";
 import "./List.css";
 
 export default function List() {
@@ -44,8 +37,6 @@ export default function List() {
       <div>
         <img src={imageUrl} alt="item" />
       </div>
-      {/* <Entry action={setFruitName} /> */}
-      {/* <img src=`https://spoonacular.com/cdn/ingredients_100x100/{fruitName}.jpg` alt="fritttsfsf" /> */}
     </div>
   );
 }
