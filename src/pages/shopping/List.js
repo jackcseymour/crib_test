@@ -59,40 +59,43 @@ export default function List() {
   console.log('ITEM: ', item)
 
   return (
-    <div className="List">
-      <header>
-        Shopping List
-        {!user ? <SignIn /> : <SignOut />}
-      </header>
-
-      <h3>
-        What would you like to add?
-      </h3>
-      <p>
-        Search for your item in the search bar and click the image to add it to the list.
-      </p>
-      <input value={content} onChange={e => handleChange(e)} />
-
-      {imageValid && (
-        <div>
-          <img src={imageUrl} alt="item" onClick={() => handleItemClick(content, imageUrl)} />
+    <div class="overall_background">
+      <div class="container">
+        <div className="topheader">
+          <h3 class="header__username">The Crib</h3>
+          <div className="List">
+            <h1 class="header__title">
+              {' '}
+              Shopping List
+              {!user ? <SignIn /> : <SignOut />}
+            </h1>
+          </div>
         </div>
-      )}
-      <hr/>
-      <h3>
-        Current Shopping List:
-      </h3>
-      <div>
-        {items.map(item => {
-          return (
-            <div key={item.id}>
-              <figure>
-                <img src={item.body} alt={item.title} />
-                  <figcaption>{item.title}</figcaption>
-              </figure>
+
+        <h3>What would you like to add?</h3>
+        <p>Search for your item in the search bar and click the image to add it to the list.</p>
+        <div className="Input">
+          <input value={content} onChange={e => handleChange(e)} />
+          {imageValid && (
+            <div>
+              <img src={imageUrl} alt="item" onClick={() => handleItemClick(content, imageUrl)} />
             </div>
-          )
-        })}
+          )}
+          <hr />
+        </div>
+        <h3>Current Shopping List:</h3>
+        <div>
+          {items.map(item => {
+            return (
+              <div key={item.id}>
+                <figure>
+                  <img src={item.body} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+                </figure>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
